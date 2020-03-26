@@ -3,7 +3,7 @@ package com.radomyr;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Model {
+public class Model extends Controller {
     public HashMap<String, HashMap> observer = new HashMap<>();
     public HashMap<String, Integer> url1Map = new HashMap<>();
     public HashMap<String, Integer> url2Map = new HashMap<>();
