@@ -6,6 +6,7 @@ public class ShipUnloader implements Runnable{
 
     public ShipUnloader(Port port) {
         this.port = port;
+        new Thread(this).start();
     }
 
     @Override

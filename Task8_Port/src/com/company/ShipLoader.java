@@ -8,6 +8,7 @@ public class ShipLoader implements Runnable{
 
     public ShipLoader(Port port) {
         this.port = port;
+        new Thread(this).start();
     }
 
     @Override

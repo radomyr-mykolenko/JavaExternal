@@ -9,6 +9,7 @@ public class ShipGenerator implements Runnable {
     public ShipGenerator(Port port, int shipCount) {
         this.port = port;
         this.shipCount = shipCount;
+        new Thread(this).start();
     }
 
     @Override
