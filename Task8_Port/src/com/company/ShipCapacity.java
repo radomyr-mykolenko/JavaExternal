@@ -1,7 +1,7 @@
 package com.company;
 
 public enum ShipCapacity {
-    TANKER("Tanker", 30), MIDDLE("Middle", 20), BOAT("Boat", 10);
+    TANKER("Tanker", 20), MIDDLE("Middle", 10), BOAT("Boat", 5);
     private int capacity;
     private String name;
 

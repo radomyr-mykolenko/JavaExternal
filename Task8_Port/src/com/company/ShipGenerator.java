@@ -19,8 +19,8 @@ public class ShipGenerator implements Runnable {
             Thread.currentThread().setName(" Generator ship");
             count++;
             port.add(new Ship(getShipType()));
-            try {
-                Thread.sleep(500);
+           try {
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -11,7 +11,8 @@ public class Port {
 
     public Port(){
         shipsInPort = new ArrayList<>();
-        setContainersInPort(150);
+        setContainersInPort(50);
+
     }
     public synchronized boolean add(Ship ship) {
 
@@ -22,8 +23,6 @@ public class Port {
                 shipsInPort.add(ship);
                 String info = String.format("There are %s ships in the port now, its maximum capacity is "+ this.getMaxShipsInPort() + " ships \n arrived such ship to the port - %s", shipsInPort.size(), ship.toString(), Thread.currentThread().getName());
                 System.out.println(info);
-                //
-
             } else {
                 System.out.println(shipsInPort.size()-getMaxShipsInPort() + "Ship are waiting in the sea. There is no place for them in the Port for loading/unloading now: " + Thread.currentThread().getName());
                 wait();
@@ -47,21 +46,49 @@ public class Port {
         return containersInPort;
     }
 
-    public synchronized void addContainerToPort() {
+    public void  addContainerToPort() {
         containersInPort++;
-    }
 
-    public void setContainersInPort(int containersInPort) {
-        this.containersInPort = containersInPort;
     }
-
-    public synchronized void removeContainerFromPort(){
-        if (getContainersInPort()>0)
+    public void removeContainerFromPort(){
+        if (getContainersInPort()>0){
             containersInPort--;
+        }
         else {
             System.out.println("You removed all containers from port");
         }
     }
+
+    public synchronized void operateWithContainersInThePort(String task){
+       /* try {
+           // wait();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+        switch (task){
+            case "+":{
+                containersInPort++;
+            }
+            case "-":{
+                if (getContainersInPort()>0){
+                    containersInPort--;
+                }
+                else {
+                    System.out.println("You removed all containers from port");
+                }
+            }
+        }
+       // notifyAll();
+
+    }
+
+    public void setContainersInPort(int containersInPort) {
+        this.containersInPort = containersInPort;
+        System.out.println("\n There are "+getContainersInPort()+ " containers in the port\n");
+    }
+
+
     public boolean checkContainersPresenceInPort(){
         if (getContainersInPort() == 0)
             return false;

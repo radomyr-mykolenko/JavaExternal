@@ -1,13 +1,17 @@
 package com.company;
 
-
-import java.sql.SQLOutput;
-
-public class ShipLoader implements Runnable{
+public class ShipLoader implements Runnable {
     private Port port;
+    private Ship ship;
 
     public ShipLoader(Port port) {
         this.port = port;
+        new Thread(this).start();
+    }
+
+    public ShipLoader(Ship ship, Port port) {
+        this.port = port;
+        this.ship = ship;
         new Thread(this).start();
     }
 
@@ -19,31 +23,28 @@ public class ShipLoader implements Runnable{
             e.printStackTrace();
         }
 
-        for (Ship ship : port.getShipsInPort()) {
-            Thread.currentThread().setName("Unloading " + ship.getType());
-            //int loadedcontainers = ship.getLoadedContainers();
-            //for(int i = loadedcontainers;i<ship.getShipCapacity();i++) {
-            while (!ship.isFull()){
-                try {
-                    Thread.sleep(100);
-                    if (ship != null && !ship.isFull()) {
-                        port.removeContainerFromPort();
-                        ship.load();
-                        if (ship.getLoadedContainers()==ship.getShipCapacity()){
-                        System.out.println("Ship \u001B[33m" + ship.getType() + "\u001B[37m number "+ ship.hashCode() +" loaded\n");
-                        }
-                        System.out.println("There are " + port.getContainersInPort() + " containers in the port now\n");
-                    } else {
-                        System.out.println("Loading is forbidden now for " + ship.toString() + "Try to unload it\n");
+
+        while (!ship.isFull()&&port.checkContainersPresenceInPort()) {
+            try {
+                Thread.sleep(20);
+                if (ship != null && !ship.isFull()) {
+                    port.operateWithContainersInThePort("-");
+                    ship.load();
+                    View.printLoading(ship,port);
+
+                    if (ship.getLoadedContainers() == ship.getShipCapacity()) {
+                       View.printShipLoaded(ship);
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+
+                } else {
+                  View.printLoadingIsForbidden(ship);
                 }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-
-
     }
+
 }
 
 
