@@ -40,6 +40,12 @@ public class DOMparser {
                     System.out.println("  stem color - " + namedNodeMap.getNamedItem("stem_color").getNodeValue());
                     System.out.println("  leaves color - " + namedNodeMap.getNamedItem("leaves_color").getNodeValue());
                     System.out.println("  average height - " + namedNodeMap.getNamedItem("average_height").getNodeValue() + "cm");
+
+                    namedNodeMap = element.getElementsByTagName("growing_tips").item(0).getAttributes();
+                    System.out.println("growing tips: ");
+                    System.out.println("  temperature - " + namedNodeMap.getNamedItem("temperature").getNodeValue() + "C");
+                    System.out.println("  lightening - " + namedNodeMap.getNamedItem("lightening").getNodeValue());
+                    System.out.println("  watering - " + namedNodeMap.getNamedItem("watering").getNodeValue() + "ml");
                     System.out.println("way of multiplying - " + element.getElementsByTagName("multiplying").item(0).getChildNodes().item(0).getNodeValue() + "\n");
 
                 }

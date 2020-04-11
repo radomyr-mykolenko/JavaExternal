@@ -6,7 +6,7 @@
         <soil>podzolistaya</soil>
         <origin>Holland</origin>
         <visual_parameters stem_color="light-green" leaves_color="yellow" average_height="56"/>
-        <growing_tips temperature="51" lightening="true" watering="100ml"/>
+        <growing_tips temperature="51" lightening="true" watering="100"/>
         <multiplying>by leaves</multiplying>
     </flower>
     <flower>
@@ -14,7 +14,7 @@
         <soil>gruntovaya</soil>
         <origin>Ukraine</origin>
         <visual_parameters stem_color="green" leaves_color="dark-yellow" average_height="48"/>
-        <growing_tips temperature="26" lightening="false" watering="110ml"/>
+        <growing_tips temperature="26" lightening="false" watering="110"/>
         <multiplying>by cherenki</multiplying>
     </flower>
     <flower>
@@ -22,7 +22,7 @@
         <soil>dernovo-podzolistaya</soil>
         <origin>Ukraine</origin>
         <visual_parameters stem_color="red" leaves_color="dark-yellow" average_height="55"/>
-        <growing_tips temperature="32" lightening="true" watering="180ml"/>
+        <growing_tips temperature="32" lightening="true" watering="180"/>
         <multiplying>by seeds</multiplying>
     </flower>
 
