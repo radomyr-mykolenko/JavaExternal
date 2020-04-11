@@ -23,24 +23,25 @@ public class ShipLoader implements Runnable {
             e.printStackTrace();
         }
 
+        synchronized (port) {
+            while (!ship.isFull() && port.checkContainersPresenceInPort()) {
+                try {
+                    Thread.sleep(20);
+                    if (ship != null && !ship.isFull()) {
+                        port.operateWithContainersInThePort("-");
+                        ship.load();
+                        View.printLoading(ship, port);
 
-        while (!ship.isFull()&&port.checkContainersPresenceInPort()) {
-            try {
-                Thread.sleep(20);
-                if (ship != null && !ship.isFull()) {
-                    port.operateWithContainersInThePort("-");
-                    ship.load();
-                    View.printLoading(ship,port);
+                        if (ship.getLoadedContainers() == ship.getShipCapacity()) {
+                            View.printShipLoaded(ship);
+                        }
 
-                    if (ship.getLoadedContainers() == ship.getShipCapacity()) {
-                       View.printShipLoaded(ship);
+                    } else {
+                        View.printLoadingIsForbidden(ship);
                     }
-
-                } else {
-                  View.printLoadingIsForbidden(ship);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
     }

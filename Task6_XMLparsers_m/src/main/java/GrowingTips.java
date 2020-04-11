@@ -1,4 +1,3 @@
-package com.radomyr;
 
 public class GrowingTips {
     private int temperature;

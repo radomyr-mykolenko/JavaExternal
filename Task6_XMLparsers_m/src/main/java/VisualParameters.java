@@ -1,5 +1,3 @@
-package com.radomyr;
-
 public class VisualParameters {
     private String stem_color;
     private String leaves_color;

@@ -59,7 +59,7 @@ public class Port {
         }
     }
 
-    public synchronized void operateWithContainersInThePort(String task){
+    public void operateWithContainersInThePort(String task){
        /* try {
            // wait();
 

@@ -18,24 +18,25 @@ public class ShipUnloader implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        synchronized (port) {
+            while (!ship.isEmpty()) {
+                try {
+                    Thread.sleep(10);
+                    if (ship != null && !ship.isEmpty()) {
+                        ship.unload();
+                        port.operateWithContainersInThePort("+");
 
-        while (!ship.isEmpty()) {
-            try {
-                Thread.sleep(10);
-                if (ship != null && !ship.isEmpty()) {
-                    ship.unload();
-                    port.operateWithContainersInThePort("+");
-
-                    View.printUnloading(ship,port);
-                    if (ship.getLoadedContainers() == 0) {
-                       View.printShipUnloaded(ship);
+                        View.printUnloading(ship, port);
+                        if (ship.getLoadedContainers() == 0) {
+                            View.printShipUnloaded(ship);
+                        }
+                    } else {
+                        View.printUnloadingIsForbidden(ship);
                     }
-                } else {
-                    View.printUnloadingIsForbidden(ship);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-           }
+            }
         }
     }
 
