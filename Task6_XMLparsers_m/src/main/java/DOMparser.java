@@ -10,6 +10,9 @@ import java.io.IOException;
 
 public class DOMparser {
     public static void domParse(String path){
+        System.out.println("---------------------------------------------------------");
+        System.out.println("DOM parser operates");
+        System.out.println("---------------------------------------------------------");
         File xmlFile = new File(path);
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
@@ -30,8 +33,8 @@ public class DOMparser {
                 //Перевіряємо конкретний тип, якщо він є елементом, то входимо в нього
                 if (node.getNodeType()==Node.ELEMENT_NODE){
                     Element element = (Element) node;
-                    System.out.println("*** Flower ***");
-                    System.out.println("name - " + element.getElementsByTagName("name").item(0).getTextContent());
+
+                    System.out.println("Flower's name - " + element.getElementsByTagName("name").item(0).getTextContent());
                     System.out.println("soil - " + element.getElementsByTagName("soil").item(0).getTextContent());
                     System.out.println("origin - " + element.getElementsByTagName("origin").item(0).getChildNodes().item(0).getNodeValue());
 

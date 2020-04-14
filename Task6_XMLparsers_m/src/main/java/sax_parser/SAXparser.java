@@ -11,7 +11,9 @@ public class SAXparser {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
             UserHandler userhandler = new UserHandler();
-            System.out.println("SAX parser is operating\n");
+            System.out.println("------------------------------------------------------------");
+            System.out.println("SAX parser is operating");
+            System.out.println("------------------------------------------------------------");
             saxParser.parse(inputFile, userhandler);
         } catch (Exception e) {
             e.printStackTrace();

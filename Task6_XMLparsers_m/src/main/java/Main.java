@@ -7,5 +7,13 @@ public class Main {
         DOMparser.domParse(xmlFilepath);
         SAXparser.parse(xmlFilepath);
 
+// creating objects from file by hand-made builder
+        Orangery orangery = new FlowerBuilder().builtFlowers(new MyStAXparser().parse(xmlFilepath));
+
+        System.out.println("List of objects created from XML file " + xmlFilepath);
+
+        orangery.displayFlowers();
+
+
     }
 }
