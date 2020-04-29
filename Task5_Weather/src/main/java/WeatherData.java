@@ -50,7 +50,7 @@ public class WeatherData implements Subject {
 
 
         System.out.println(response);
-        //ObjectMapper objectMapper = new ObjectMapper(Rresponse);
+        //ObjectMapper objectMapper = new ObjectMapper(response);
 
     }
     /*public void updateMeasurements(String city){

@@ -8,10 +8,10 @@ public class FlowerBuilder {
         //this.flowers = new Orangery();
     }
 
-    public Orangery builtFlowers(ArrayList<String> receivedFromXMLdata) {
+    public ArrayList<Flower> builtFlowers(ArrayList<String> receivedFromXMLdata) {
         int i;
-        //ArrayList<Flower> flowers = new ArrayList<>();
-        Orangery flowers = new Orangery();
+        ArrayList<Flower> flowers = new ArrayList<>();
+        //Orangery flowers = new Orangery();
         for (i = 10; i <= receivedFromXMLdata.size(); i += 10) {
             Flower flower = new Flower();
 
@@ -48,8 +48,8 @@ public class FlowerBuilder {
             flower.setGrowingTips(growingTips);
             flower.setMultiplying(receivedFromXMLdata.get(i - 1)); // 9
 
+            flowers.add(flower);
             //flowers.addFlower(flower);
-            flowers.addFlower(flower);
         }
         return flowers;
     }

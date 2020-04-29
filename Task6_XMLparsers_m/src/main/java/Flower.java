@@ -1,4 +1,4 @@
-
+import java.util.Comparator;
 
 public class Flower {
     private String name;
@@ -82,15 +82,15 @@ public class Flower {
 
     @Override
     public String toString() {
-        return "\nFlower name is " + this.getName()
-                + "\n soil: " + this.getSoil()
+        return "\nFlower name is \u001B[31m" + this.getName()
+                + "\n \u001B[37msoil: " + this.getSoil()
                 + "\n origin from: " + this.getOrigin()
                 + "\n visual parameters \n   stem color: " + this.getVisualParameters().getStem_color()
                 + "\n   leaves color: " + this.getVisualParameters().getLeaves_color()
                 + "\n   average height: " + this.getVisualParameters().getAverage_height() + "cm"
                 + "\n growing tips\n   lightening: " + this.getGrowingTips().isLightening()
                 + "\n   watering: " + this.getGrowingTips().getWatering() + "ml"
-                + "\n   temperature: " + this.getGrowingTips().getTemperature() + "C"
+                + "\n  \u001B[32m temperature: " + this.getGrowingTips().getTemperature() + "C\u001B[37m"
                 + "\n multiplying: " + this.getMultiplying();
     }
 }

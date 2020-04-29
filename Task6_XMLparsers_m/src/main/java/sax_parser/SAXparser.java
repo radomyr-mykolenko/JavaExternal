@@ -5,6 +5,7 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 
 public class SAXparser {
+
     public static void parse(String path){
         try {
             File inputFile = new File(path);

@@ -94,7 +94,7 @@ public class GameController {
                     break;
                 }
                 default: {
-                    view.printMsg(view.TRY_AGAIN_LANG_MESSAGE);
+                    view.printMsg(view.TRY_AGAIN_MESSAGE);
                 }
             }
         }
