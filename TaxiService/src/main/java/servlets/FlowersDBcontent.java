@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import classes.Flower;
 
 
 @WebServlet("/FlowersDBcontent")
@@ -30,7 +31,7 @@ public class FlowersDBcontent extends HttpServlet {
                     "Select * From flowers ");
             while (rs.next()) {
                 // По каждой записи выборки формируется
-                // объект класса Employee.
+                // объект класса Flower.
                 // Значения свойств заполяются из полей записи
                 Flower flower = new Flower(
                         rs.getLong(1),

@@ -10,5 +10,14 @@
         <property name="serverTimezone" value="UTC" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="flowersdb@localhost" uuid="63f680c5-71bc-4056-85e3-846492e61ef5">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/flowersdb</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="UTC" />
+      </driver-properties>
+    </data-source>
   </component>
 </project>

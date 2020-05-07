@@ -8,6 +8,7 @@
 <jsp:include page="header.html"/>
 <div class="maincontent">
     <p>Here we'll work with our taxi</p>
+    <a href="FlowersDBcontent">Show content of Database</a>
 </div>
 </body>
 </html>

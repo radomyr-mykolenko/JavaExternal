@@ -6,6 +6,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="TaxiService" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.48" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="TaxiService/web/Web" />
     </root>
