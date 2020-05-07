@@ -1,0 +1,47 @@
+html {
+    font-size: 15px;
+    font-family: Arial;
+    /*color: #3c3c3c;*/
+    color: rgb(83, 82, 82);
+}
+body{
+    background-image:url(images/backimage.jpg);
+}
+.header {
+    width: 890px;
+    /*height: 55px;*/
+    margin: 0 auto;
+    background-color: aqua;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+.maincontent {
+    width: 890px;
+    min-height: 300px;
+    margin: 0 auto;
+    background-color: #fffdfd;
+    text-align: center;
+    border-radius:  0 0 10px 10px;
+}
+#logo_text {
+    font-family:Arial;
+    font-size:2rem;
+    color:white;
+    font-weight:bold;
+    text-shadow: 1px 1px 5px #333;
+}
+#text_under_the_logo {
+    font-family:Arial;
+    font-size:1rem;
+    color: #fffe91;
+    font-weight:normal;
+    text-shadow: 1px 1px 5px #333;
+}
+div {
+    box-shadow: rgb(128, 128, 128) 4px 10px 10px;
+    padding: 5px 5px 5px 5px;
+
+}
+div div {
+    box-shadow:none;
+}

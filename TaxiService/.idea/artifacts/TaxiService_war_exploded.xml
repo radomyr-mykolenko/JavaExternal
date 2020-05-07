@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="TaxiService:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/TaxiService_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="TaxiService" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="TaxiService/web/Web" />
+    </root>
+  </artifact>
+</component>
