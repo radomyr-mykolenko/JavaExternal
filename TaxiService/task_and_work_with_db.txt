@@ -1,0 +1,102 @@
+Ось задача: Система Служба Такси. Клиент регистрируется в системе и может создавать заказ на Такси, указывая адрес и тип авто. 
+Программа рассчитывает стоимость поездки в зависимости от дистанции, клиентской скидки и/или акции. 
+Система поддерживает программу Лояльности - рассчитывается скидка в зависимости от суммы потраченной суммы. 
+Также могут действовать акционные предложения. После подтверждения Заказа клиентом, Система ищет свободное такси, соответствующее по типу авто. 
+После чего Клиента оповещают, найдено ли Такси и какое время ожидания.
+
+(Phase 1)
+user(id, name, email, password)
+  	(1, 'anatol.mykolenko@gmail.com', '123bhj123jhhejk12dkj12dkh12')
+
+	CREATE TABLE IF NOT EXISTS user (
+		id SMALLINT NOT NULL AUTO_INCREMENT,
+		name VARCHAR(30) NOT NULL DEFAULT 'noname',
+  		email VARCHAR(35) UNIQUE NOT NULL DEFAULT 'absent',
+		password VARCHAR(20) NOT NULL DEFAULT 'empty password',
+		PRIMARY KEY (id)
+	);
+
+	INSERT INTO user (name, email, password) 
+		VALUES
+		('Petro', 'petro@gmail.com', '12345a'),
+		(DEFAULT, 'err@err.com', 'password1_1'),
+		('DImitryy', DEFAULT, 'password1_3');
+
+DROP TABLE user;
+
+DELETE from user WHERE id BETWEEN 4 AND 6;
+
+було: order(id, user_id(fk), start, destination, distance, cost, car_id)  форма - start, destination, car_type_id
+стало: order(id, user_id(fk to user.id), start, destination, distance, cost, car_description(fk to car_type.description))
+  (1, 1, 'старт 1', 'фініш 23/15', )
+
+CREATE TABLE IF NOT EXISTS orders (
+	id MEDIUMINT NOT NULL AUTO_INCREMENT,
+	user_id SMALLINT NOT NULL,
+	start VARCHAR(30) NOT NULL DEFAULT 'start place',
+	destination VARCHAR(30) NOT NULL DEFAULT 'destination',
+	distance SMALLINT NOT NULL DEFAULT 1,
+	cost SMALLINT NOT NULL DEFAULT 1,
+	car_description VARCHAR(20) NOT NULL,
+	FOREIGN KEY (user_id)  REFERENCES user (id),
+	FOREIGN KEY (car_description) REFERENCES car_type(description),
+	PRIMARY KEY(id)
+);
+
+INSERT INTO orders (user_id, start, destination, distance, cost, car_description)
+
+  base_const = 25.50
+  rand distance = 6.45
+  cost = distance * base_cost
+
+
+  select id
+  from car c join car_type ct on ct.id = c.car_type_id
+  where ct.id = %input here
+
+car_type(id, description)
+  (1, 'люкс')
+  (2, 'економ')
+
+CREATE TABLE IF NOT EXISTS car_type (
+	id SMALLINT UNIQUE NOT NULL,
+	description VARCHAR(20) UNIQUE,
+	PRIMARY KEY(id)
+);
+
+INSERT INTO car_type (id, description) VALUES 
+	(1, 'lux'),
+	(2, 'econom');
+
+
+cars(id, car_type_id(fk), license_number, make)
+  (1, 1, 'aa5566xt', 'mercedes') lux
+  (2, 2, 'aa9999oo', 'daewoo') econom
+  (3, 2, 'aa2222oo', 'daewoo') econom
+
+
+CREATE TABLE IF NOT EXISTS cars (
+	id SMALLINT NOT NULL AUTO_INCREMENT,
+	car_type_id SMALLINT NOT NULL,
+	car_number VARCHAR(10) UNIQUE NOT NULL,
+	car_brand VARCHAR(30) NOT NULL DEFAULT 'no brand',
+	ordered BOOL,
+	FOREIGN KEY (car_type_id) REFERENCES car_type(id),
+	PRIMARY KEY(id)
+);
+
+INSERT INTO cars (car_type_id, car_number, car_brand, ordered) VALUES
+	(1,'aa5566xt','mercedes',0),
+	(2,'aa9999oo','daewoo',0),
+	(2,'aa2222oo','daewoo',0)
+;
+
+
+<form>
+  <input name='start' for='start'>
+  <input name='destination' for='start'>
+  <select>
+    <option value='1'>люкс</option>
+    <option value='2'>економ</option>
+  </select>
+</form>
