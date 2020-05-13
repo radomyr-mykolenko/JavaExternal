@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 
 
 @WebServlet("/FillUserTable")
@@ -28,10 +29,11 @@ public class FillUserTable extends HttpServlet {
                     "\t\t('Petro', 'petro@gmail.com', '12345a'),\n" +
                     "\t\t(DEFAULT, 'err@err.com', 'password1_1'),\n" +
                     "\t\t('DImitryy', DEFAULT, 'password1_3');");
+            out.println("<H1>users were added</H1>");
             con.close();
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("database not found");
+            out.println("error");
         }
     }
 }
