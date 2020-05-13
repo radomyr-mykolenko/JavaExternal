@@ -5,10 +5,11 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="header.html"/>
+<jsp:include page="html/header.html"/>
 <div class="maincontent">
     <p>Here we'll work with our taxi</p>
-    <a href="FlowersDBcontent">Show content of Database</a>
+    <a href="FlowersDBcontent">Test - Show content of Flower's Database</a>
+    <a href="html/admin_page.html">Go to admin's page</a>
 </div>
 </body>
 </html>

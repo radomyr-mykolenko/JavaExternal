@@ -43,8 +43,15 @@ public class FlowersDBcontent extends HttpServlet {
                 flowers.add(flower);
             }
             // Закрываем выборку и соединение с БД
+
+           /*con.createStatement().executeUpdate("INSERT INTO user (name, email, password) \n" +
+                   "\t\tVALUES\n" +
+                   "\t\t('Petro', 'petro@gmail.com', '12345a'),\n" +
+                   "\t\t(DEFAULT, 'err@err.com', 'password1_1'),\n" +
+                   "\t\t('DImitryy', DEFAULT, 'password1_3');");*/
             rs.close();
             con.close();
+
         } catch (Exception e) {
             e.printStackTrace();
             out.println("database not found");
