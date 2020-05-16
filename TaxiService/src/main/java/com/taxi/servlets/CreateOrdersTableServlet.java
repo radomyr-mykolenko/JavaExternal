@@ -1,7 +1,7 @@
 package com.taxi.servlets;
 
 import com.taxi.workwith_db.ConnectDB;
-import com.taxi.workwith_db.Create;
+import com.taxi.workwith_db.QueryUpdate;
 import com.taxi.workwith_db.SqlQueries;
 
 import javax.servlet.ServletException;
@@ -20,8 +20,8 @@ public class CreateOrdersTableServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ConnectDB connectDB = new ConnectDB();
-        Create create = new Create(connectDB);
-        create.execute(SqlQueries.CREATE_ORDERS_TABLE);
+        QueryUpdate queryUpdate = new QueryUpdate(connectDB);
+        queryUpdate.execute(SqlQueries.CREATE_ORDERS_TABLE);
         connectDB.stop();
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();

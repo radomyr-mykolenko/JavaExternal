@@ -3,10 +3,10 @@ package com.taxi.workwith_db;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class Create {
+public class QueryUpdate {
     private ConnectDB connectDB;
 
-    public Create(ConnectDB connectDB) {
+    public QueryUpdate(ConnectDB connectDB) {
         this.connectDB = connectDB;
     }
     public void execute(String sqlQuery){

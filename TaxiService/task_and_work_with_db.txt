@@ -27,7 +27,7 @@ DROP TABLE user;
 DELETE from user WHERE id BETWEEN 4 AND 6;
 
 було: order(id, user_id(fk), start, destination, distance, cost, car_id)  форма - start, destination, car_type_id
-стало: order(id, user_id(fk to user.id), start, destination, distance, cost, car_description(fk to car_type.description))
+стало: order(id, user_id(fk to user.id), start, destination, distance, cost, car_id(fk to cars.id))
   (1, 1, 'старт 1', 'фініш 23/15', )
 
 CREATE TABLE IF NOT EXISTS orders (
@@ -37,13 +37,19 @@ CREATE TABLE IF NOT EXISTS orders (
 	destination VARCHAR(30) NOT NULL DEFAULT 'destination',
 	distance SMALLINT NOT NULL DEFAULT 1,
 	cost SMALLINT NOT NULL DEFAULT 1,
-	car_description VARCHAR(20) NOT NULL,
+	car_id SMALLINT NOT NULL,
 	FOREIGN KEY (user_id)  REFERENCES user (id),
-	FOREIGN KEY (car_description) REFERENCES car_type(description),
+	FOREIGN KEY (car_id) REFERENCES cars(id),
 	PRIMARY KEY(id)
 );
 
 INSERT INTO orders (user_id, start, destination, distance, cost, car_description)
+VALUES
+(1,'Pirogivska str 5','Bohdana hmelnitskogo str',56,563,'люкс'),
+(2,'Pirogivska str 5','Bohdana hmelnitskogo str',60,630,'люкс'),
+(3,'Dreizer str 5','Bohdana Kutipova str 60',20,120,'економ'),
+(2,'Dreizer str 8','Bohdana Kutipova str 40',80,250,'економ');
+
 
   base_const = 25.50
   rand distance = 6.45
