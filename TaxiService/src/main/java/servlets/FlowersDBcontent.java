@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import classes.Flower;
+import com.taxi.workwith_db.*;
 
 
 @WebServlet("/FlowersDBcontent")
@@ -23,13 +24,17 @@ public class FlowersDBcontent extends HttpServlet {
         List<Flower> flowers = new ArrayList<Flower>();
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+      ConnectDB connectDB = new ConnectDB();
+      Connection con = connectDB.getConnection();
+        ResultSet rs = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver").getDeclaredConstructor().newInstance();
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/flowersdb", "root", "root566");
-            ResultSet rs = con.createStatement().executeQuery(
+            rs = con.createStatement().executeQuery(
                     "Select * From flowers ");
-            while (rs.next()) {
+
+            while (true) {
+
+                if (!rs.next()) break;
+
                 // По каждой записи выборки формируется
                 // объект класса Flower.
                 // Значения свойств заполяются из полей записи
@@ -51,11 +56,11 @@ public class FlowersDBcontent extends HttpServlet {
                    "\t\t('DImitryy', DEFAULT, 'password1_3');");*/
             rs.close();
             con.close();
-
-        } catch (Exception e) {
+        } catch (SQLException e){
             e.printStackTrace();
-            out.println("database not found");
+            out.println("Database not found");
         }
+
 
         out.println("<head>\n" +
                 "    <title>Flowers from Database</title>\n" +
