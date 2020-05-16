@@ -11,4 +11,50 @@
         <servlet-name>FlowersDBcontent</servlet-name>
         <url-pattern>/flowers_db_content</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateUserTableServlet</servlet-name>
+        <servlet-class>com.taxi.servlets.CreateUserTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateUserTableServlet</servlet-name>
+        <url-pattern>/create_user_table_servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>CreateOrdersTableServlet</servlet-name>
+    <servlet-class>com.taxi.servlets.CreateOrdersTableServlet</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>CreateOrdersTableServlet</servlet-name>
+        <url-pattern>/create_orders_table_servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateCarTypeTableServlet</servlet-name>
+        <servlet-class>com.taxi.servlets.CreateCarTypeTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateCarTypeTableServlet</servlet-name>
+        <url-pattern>/create_car_type_table_servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateCarsTableServlet</servlet-name>
+        <servlet-class>com.taxi.servlets.CreateCarsTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateCarsTableServlet</servlet-name>
+        <url-pattern>/create_cars_table_servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateTablesServlet</servlet-name>
+        <servlet-class>com.taxi.servlets.CreateTablesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateTablesServlet</servlet-name>
+        <url-pattern>/create_tables_for_db</url-pattern>
+    </servlet-mapping>
+
 </web-app>

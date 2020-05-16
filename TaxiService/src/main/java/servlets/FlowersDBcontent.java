@@ -25,7 +25,7 @@ public class FlowersDBcontent extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
       ConnectDB connectDB = new ConnectDB();
-      Connection con = connectDB.getConnection();
+      Connection con = connectDB.getFlowersConnection();
         ResultSet rs = null;
         try {
             rs = con.createStatement().executeQuery(
