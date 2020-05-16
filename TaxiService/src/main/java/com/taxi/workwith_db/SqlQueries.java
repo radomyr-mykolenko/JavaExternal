@@ -38,17 +38,26 @@ public class SqlQueries {
                     "FOREIGN KEY (car_type_id) REFERENCES car_type(id)," +
                     "PRIMARY KEY(id)" +
                     ");";
-    public static final String INSERT_TEST_VALUES_INTO_USER_TABLE = "INSERT INTO user (name, email, password) \n" +
+    public static final String INSERT_TEST_VALUES_INTO_USER_TABLE =
+            "INSERT INTO user (name, email, password) \n" +
             "VALUES" +
             "('Petro', 'petro@gmail.com', '12345a')," +
             "(DEFAULT, 'err@err.com', 'password1_1')," +
             "('DImitryy', DEFAULT, 'password1_3');";
-    public static final String INSERT_TEST_VALUES_INTO_ORDERS_TABLE = "INSERT INTO orders (user_id, start, destination, distance, cost, car_id)\n" +
+    public static final String INSERT_TEST_VALUES_INTO_ORDERS_TABLE =
+            "INSERT INTO orders (user_id, start, destination, distance, cost, car_id)" +
             "VALUES" +
             "(1,'Pirogivska str 5','Bohdana hmelnitskogo str',56,563,1)," +
             "(2,'Pirogivska str 5','Bohdana hmelnitskogo str',60,630,1)," +
             "(3,'Dreizer str 5','Bohdana Kutipova str 60',20,120,2)," +
             "(2,'Dreizer str 8','Bohdana Kutipova str 40',80,250,3);";
-    public static final String INSERT_TEST_VALUES_INTO_CAR_TYPE_TABLE = "";
-    public static final String INSERT_TEST_VALUES_INTO_CARS_TABLE = "";
+    public static final String INSERT_TEST_VALUES_INTO_CAR_TYPE_TABLE =
+            "INSERT INTO car_type (id, description) VALUES" +
+            "(1, 'lux')," +
+            "(2, 'econom');";
+    public static final String INSERT_TEST_VALUES_INTO_CARS_TABLE =
+            "INSERT INTO cars (car_type_id, car_number, car_brand, ordered) VALUES" +
+            "(1,'aa5566xt','mercedes',0)," +
+            "(2,'aa9999oo','daewoo',0)," +
+            "(2,'aa2222oo','daewoo',0);";
 }

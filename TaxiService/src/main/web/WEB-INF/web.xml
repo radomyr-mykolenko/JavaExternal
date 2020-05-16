@@ -57,4 +57,40 @@
         <url-pattern>/create_tables_for_db</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>InsertTestDataUserTableServlet</servlet-name>
+        <servlet-class>com.taxi.servlets.InsertTestDataUserTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertTestDataUserTableServlet</servlet-name>
+        <url-pattern>/ins_user_test_data</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InsertTestDataCarTypeTableServlet</servlet-name>
+        <servlet-class>com.taxi.servlets.InsertTestDataCarTypeTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertTestDataCarTypeTableServlet</servlet-name>
+        <url-pattern>/ins_car_type_test_data</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InsertTestDataCarsTableServlet</servlet-name>
+        <servlet-class>com.taxi.servlets.InsertTestDataCarsTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertTestDataCarsTableServlet</servlet-name>
+        <url-pattern>/ins_cars_test_data</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InsertTestDataOrdersTableServlet</servlet-name>
+        <servlet-class>com.taxi.servlets.InsertTestDataOrdersTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertTestDataOrdersTableServlet</servlet-name>
+        <url-pattern>/ins_orders_test_data</url-pattern>
+    </servlet-mapping>
+
 </web-app>
