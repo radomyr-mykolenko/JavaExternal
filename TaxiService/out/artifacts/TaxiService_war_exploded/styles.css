@@ -23,6 +23,37 @@ body{
     text-align: center;
     border-radius:  0 0 10px 10px;
 }
+.maincontent_admin_menu {
+    width: 890px;
+    min-height: 380px;
+    margin: 0 auto;
+    background-color: #fffdfd;
+    text-align: center;
+
+}
+.footer {
+    width: 890px;
+    height: 24px;
+    padding: 10px 5px;
+    margin: 0 auto;
+    background-color: aquamarine;
+    border-radius: 0px 0px 10px 10px;
+    color: white;
+    font-weight: normal;
+    text-shadow: 1px 1px 2px #333;
+    text-align: center;
+}
+.footer_higher {
+    width: 880px;
+    min-height: 24px;
+    padding: 10px 5px 20px 15px;
+    margin: 0 auto;
+    background-color: #fffdfd;
+    border-radius: 0px 0px 10px 10px;
+    color: darkslategray;
+    font-weight: normal;
+    text-align: center;
+}
 #logo_text {
     font-family:Arial;
     font-size:2rem;

@@ -14,8 +14,9 @@
 </head>
 <body>
 <jsp:include page="../html/header.html"/>
-<div class="maincontent">
-    <p>All users that are registered in system</p>
+<jsp:include page="../html/admin_menu.html"/>
+<div class="footer_higher">
+    <p>All users that are registered in system:</p>
     <table>
         <tr> <th>id</th><th>name</th><th>email</th><th>password</th></tr>
         <c:forEach var="user" items="${users}">
