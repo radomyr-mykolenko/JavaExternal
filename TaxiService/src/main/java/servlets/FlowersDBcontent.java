@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import classes.Flower;
 import com.taxi.workwith_db.*;
 
@@ -24,8 +25,8 @@ public class FlowersDBcontent extends HttpServlet {
         List<Flower> flowers = new ArrayList<Flower>();
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-      ConnectDB connectDB = new ConnectDB();
-      Connection con = connectDB.getFlowersConnection();
+        ConnectDB connectDB = new ConnectDB();
+        Connection con = connectDB.getFlowersConnection();
         ResultSet rs = null;
         try {
             rs = con.createStatement().executeQuery(
@@ -56,7 +57,7 @@ public class FlowersDBcontent extends HttpServlet {
                    "\t\t('DImitryy', DEFAULT, 'password1_3');");*/
             rs.close();
             con.close();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             out.println("Database not found");
         }

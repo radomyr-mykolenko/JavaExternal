@@ -13,12 +13,10 @@ public class QuerySelect {
         this.resultSet = null;
     }
 
-    public ResultSet execute(String sqlQuery) {
-        Connection connection = connectDB.getConnection();
+    public ResultSet execute(String sqlQuery, Connection connection) {
+
         try {
             resultSet = connection.createStatement().executeQuery(sqlQuery);
-            connection.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

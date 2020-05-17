@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class ShowAllUsersServlet extends HttpServlet {
         try {
 
 
-            rs = querySelect.execute(SqlQueries.SELECT_ALL_USERS);
+            rs = querySelect.execute(SqlQueries.SELECT_ALL_USERS, connectDB.getConnection());
             while (true) {
                 if (!rs.next()) break;
                 User user = new User(
@@ -40,12 +41,16 @@ public class ShowAllUsersServlet extends HttpServlet {
                         rs.getString(4)
                 );
                 users.add(user);
-                rs.close();
-                connectDB.stop();
             }
+            rs.close();
+            connectDB.stop();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        /*PrintWriter out = response.getWriter();
+        for(User user: users){
+            out.println(user.toString());
+        }*/
         request.setAttribute("users", users);
         getServletContext().getRequestDispatcher("/jsp/showusers.jsp").forward(request, response);
     }
