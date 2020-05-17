@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>All registered users</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="../html/header.html"/>

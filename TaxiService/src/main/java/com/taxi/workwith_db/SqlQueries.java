@@ -61,4 +61,5 @@ public class SqlQueries {
             "(2,'aa9999oo','daewoo',0)," +
             "(2,'aa2222oo','daewoo',0);";
     public static final String SELECT_ALL_USERS = "SELECT * FROM user";
+    public static final String SELECT_ALL_CAR_TYPES = "SELECT * FROM car_type";
 }
