@@ -8,7 +8,6 @@
 <jsp:include page="html/header.html"/>
 <div class="maincontent">
     <p>Here we'll work with our taxi</p>
-    <a href="/flowers_db_content">Test - Show content of Flower's Database</a>
     <!--<a href="html/admin_page.html">Go to admin's page</a>  -->
     <a href="/GetAdminPageServlet">Go to admin's page</a>
 </div>

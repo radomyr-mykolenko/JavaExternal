@@ -21,7 +21,7 @@
         <tr> <th>id</th><th>description</th>
         <c:forEach var="car_type" items="${cartypes}">
             <tr>
-                <td>${car_type.id}</td><td>${car_type.description}</td><
+                <td>${car_type.id}</td><td>${car_type.description}</td>
             </tr>
         </c:forEach>
     </table>
