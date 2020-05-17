@@ -45,6 +45,11 @@ div {
 div div {
     box-shadow:none;
 }
+
+div .for_logo{
+   margin: 0 auto;
+    width: 30%;
+}
 .content_preview {
     min-height: 40px;
     width: 25%;
