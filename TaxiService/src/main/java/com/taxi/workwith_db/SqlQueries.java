@@ -63,4 +63,5 @@ public class SqlQueries {
     public static final String SELECT_ALL_USERS = "SELECT * FROM user";
     public static final String SELECT_ALL_CAR_TYPES = "SELECT * FROM car_type";
     public static final String SELECT_ALL_CARS = "SELECT * FROM cars";
+    public static final String SELECT_ALL_ORDERS = "SELECT * FROM orders";
 }
