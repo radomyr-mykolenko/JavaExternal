@@ -9,12 +9,12 @@ body{
 }
 .header {
     width: 890px;
-    /*height: 55px;*/
+    height: 60px;
     margin: 0 auto;
     background-color: aqua;
-    text-align: center;
     border-radius: 10px 10px 0 0;
 }
+
 .maincontent {
     width: 890px;
     min-height: 500px;
@@ -76,10 +76,31 @@ div {
 div div {
     box-shadow:none;
 }
-
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid dimgrey;
+    padding: 3px;
+}
 div .for_logo{
    margin: 0 auto;
     width: 30%;
+}
+.header_content {
+    /*min-height: 40px;
+    width: 25%;
+    max-width: 40%;
+   */
+    border-radius: 8px;
+    letter-spacing: normal;
+    /*float: left;*/
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    margin-top: -100px;
+    margin-left: -100px;
 }
 .content_preview {
     min-height: 40px;
