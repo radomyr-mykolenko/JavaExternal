@@ -9,14 +9,14 @@ public class QueryUpdate {
     public QueryUpdate(ConnectDB connectDB) {
         this.connectDB = connectDB;
     }
-    public void execute(String sqlQuery){
+    public void execute(String sqlQuery) throws SQLException {
         Connection connection = connectDB.getConnection();
-        try {
+        /*try {*/
             connection.createStatement().executeUpdate(sqlQuery);
             connection.close();
-        } catch (SQLException e) {
+        /*} catch (SQLException e) {
             e.printStackTrace();
 
-        }
+        }*/
     }
 }
