@@ -29,6 +29,13 @@ public class InsertTestDataCarsTableServlet extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.println("<h3>Test data to cars table inserted</h3>");
         } catch (SQLException e) {
+            String error;
+            if (e.getErrorCode() == 2020) {
+                error = "handle duplicate index error here!";
+            } else {
+                error = "with SQL";
+            }
+            request.setAttribute("type_of_error", error);
             getServletContext().getRequestDispatcher("/jsp/error_page.jsp").forward(request, response);
         }
     }

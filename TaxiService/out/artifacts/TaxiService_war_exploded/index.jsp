@@ -11,7 +11,11 @@
     <!--<a href="html/admin_page.html">Go to admin's page</a>  -->
     <a href="/GetAdminPageServlet">Go to admin's page</a>
     <h3>Choose Your Language:</h3>
-    <form method="post" action=""><button type="submit" value="ukr">Українська</button><button type="submit" value="eng">English</button></form>
+    <form method="post" action="/GetPageServlet">
+        <button type="submit" value="ukr">Українська</button>
+        <input id="for_eng" name="eng_button" type="hidden" value="eng">
+        <input type="submit" value="eng">
+    </form>
 </div>
 </body>
 </html>

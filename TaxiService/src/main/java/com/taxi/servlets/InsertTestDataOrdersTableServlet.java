@@ -22,12 +22,12 @@ public class InsertTestDataOrdersTableServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             ConnectDB connectDB = new ConnectDB();
-        QueryUpdate queryUpdate = new QueryUpdate(connectDB);
-        queryUpdate.execute(SqlQueries.INSERT_TEST_VALUES_INTO_ORDERS_TABLE);
-        connectDB.stop();
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h3>Test data to orders table inserted</h3>");
+            QueryUpdate queryUpdate = new QueryUpdate(connectDB);
+            queryUpdate.execute(SqlQueries.INSERT_TEST_VALUES_INTO_ORDERS_TABLE);
+            connectDB.stop();
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            getServletContext().getRequestDispatcher("/jsp/admin_page.jsp").forward(request, response);
         } catch (SQLException e) {
             getServletContext().getRequestDispatcher("/jsp/error_page.jsp").forward(request, response);
         }

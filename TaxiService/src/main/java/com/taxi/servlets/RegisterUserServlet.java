@@ -17,24 +17,28 @@ public class RegisterUserServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try {
+
             String SQL_query;
 
-            SQL_query = "INSERT 1 INTO user (name, email, password) VALUES ('" + request.getParameter("username") +
+            SQL_query = "INSERT INTO user (name, email, password) VALUES ('" + request.getParameter("username") +
                     "','" + request.getParameter("usermail") + "','" + request.getParameter("userpassword") + "');";
             ConnectDB connectDB = new ConnectDB();
             QueryUpdate queryUpdate = new QueryUpdate(connectDB);
             queryUpdate.execute(SQL_query);
             connectDB.stop();
-            doGet(request, response);
+            getServletContext().getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
+
         } catch (SQLException e) {
             request.setAttribute("type_of_error", "with SQL");
             getServletContext().getRequestDispatcher("/jsp/error_page.jsp").forward(request, response);
         }
 
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/GetIndexPageServlet").forward(request, response);
+        request.getRequestDispatcher("/GetIndexPageServlet").forward(request, response);
     }
 }
