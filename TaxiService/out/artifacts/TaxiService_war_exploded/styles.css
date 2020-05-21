@@ -172,3 +172,7 @@ div .for_logo{
     font-weight:bold;
 
 }
+p.error_message_text {
+    color: red;
+
+}

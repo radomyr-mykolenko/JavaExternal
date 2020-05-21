@@ -1,4 +1,4 @@
-package com.taxi.model;
+package com.taxi.model.helpers;
 
 public class UrlForDispatcher {
     public static String getUrl(String action){

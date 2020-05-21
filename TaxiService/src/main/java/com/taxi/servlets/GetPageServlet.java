@@ -1,6 +1,6 @@
 package com.taxi.servlets;
 
-import com.taxi.model.UrlForDispatcher;
+import com.taxi.model.helpers.UrlForDispatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
