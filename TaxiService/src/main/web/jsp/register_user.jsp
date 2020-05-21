@@ -22,7 +22,7 @@
     <input name="usermail" id="email" type="text" value="test@test.com"/><br><br>
     <label for="pswrd">Password:</label>
     <input name="userpassword" id="pswrd" type="password"/><br><br>
-    <input type="submit">
+    <input type="submit" value="Register" id="submit">
 </form>
 </div>
 </body>

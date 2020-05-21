@@ -16,6 +16,7 @@ public class QueryUpdate {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
+
         }
     }
 }
