@@ -17,8 +17,13 @@ public class LogInServlet extends HttpServlet {
         boolean validate_mail = emailValidator.isEmailValid(request.getParameter("usermail"));
         if (validate_mail) {
             CheckUser checkUser = new CheckUser();
-            if (checkUser.check(request.getParameter("usermail"))) {
-                request.getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
+            if (checkUser.checkEmail(request.getParameter("usermail"))) {
+                if (checkUser.checkPassword(request.getParameter("usermail"), request.getParameter("userpassword"))) {
+                    request.getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("invalid_password_message", "password is invalid for user" + request.getParameter("usermail") + ", please try again");
+                    request.getRequestDispatcher("/jsp/login_page.jsp").forward(request, response);
+                }
             } else {
                 request.getRequestDispatcher("/jsp/register_user.jsp").forward(request, response);
             }

@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="../html/header.html"/>
 <div class="maincontent">
-    <p class="error_message_text">${requestScope.invalid_email_message}</p>
+    <p class="error_message_text">${requestScope.invalid_email_message}${requestScope.invalid_password_message}</p>
     <h3>Please log in to the system:</h3>
     <form action="/LogInServlet" method="post">
         <label for="email">Email:</label>
