@@ -40,11 +40,9 @@ public class RegisterUserServlet extends HttpServlet {
             request.setAttribute("type_of_error", "with SQL");
             getServletContext().getRequestDispatcher("/jsp/error_page.jsp").forward(request, response);
         }
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/GetIndexPageServlet").forward(request, response);
+        getServletContext().getRequestDispatcher("/GetIndexPageServlet").forward(request, response);
     }
 }

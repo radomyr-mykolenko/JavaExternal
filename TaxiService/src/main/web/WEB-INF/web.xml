@@ -67,15 +67,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>InsertTestDataCarTypeTableServlet</servlet-name>
-        <servlet-class>com.taxi.servlets.InsertTestDataCarTypeTableServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>InsertTestDataCarTypeTableServlet</servlet-name>
-        <url-pattern>/ins_car_type_test_data</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>InsertTestDataCarsTableServlet</servlet-name>
         <servlet-class>com.taxi.servlets.InsertTestDataCarsTableServlet</servlet-class>
     </servlet>
@@ -90,6 +81,15 @@
     </filter>
     <filter-mapping>
         <filter-name>EncodingRequestFilter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>EncodingResponseFilter</filter-name>
+        <filter-class>com.taxi.filters.EncodingResponseFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingResponseFilter</filter-name>
         <url-pattern>/</url-pattern>
     </filter-mapping>
 
