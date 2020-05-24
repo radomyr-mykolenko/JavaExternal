@@ -13,7 +13,7 @@
     <link href="../styles.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../html/header.html"/>
+<jsp:include page="../jsp/header.jsp"/>
 <jsp:include page="../html/admin_menu.html"/>
 <div class="footer_higher">
     <p>All users that are registered in system:</p>

@@ -26,8 +26,10 @@ public class LogInServlet extends HttpServlet {
                 if (checkUser.checkPassword(email, password)) {
 
                     // Here user goes to the next step (if login and password are valid)
-                    User user = new CreateUser().getUser(email);
-                    request.getSession().setAttribute("actual_user", user);
+                    User userForHttpSession = new CreateUser().getUser(email);
+                    request.getSession().setAttribute("actual_user", userForHttpSession);
+                    request.getSession().setAttribute("message_with_name_of_user", "You signed as ");
+                    request.getSession().setAttribute("message_for_logout"," Logout");
                     request.getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
 
                 } else {

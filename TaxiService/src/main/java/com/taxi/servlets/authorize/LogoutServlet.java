@@ -16,9 +16,10 @@ public class LogoutServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final HttpSession session = request.getSession();
-        session.removeAttribute("password");
-        session.removeAttribute("login");
-        session.removeAttribute("role");
-        response.sendRedirect("/");
+        session.removeAttribute("actual_user");
+        session.removeAttribute("message_with_name_of_user");
+        session.removeAttribute("message_for_logout");
+        session.removeAttribute("admin_role");
+        response.sendRedirect("/jsp/login_page.jsp");
     }
 }

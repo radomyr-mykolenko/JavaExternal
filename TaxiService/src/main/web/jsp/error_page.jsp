@@ -13,7 +13,7 @@
     <link href="../styles.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../html/header.html"/>
+<jsp:include page="../jsp/header.jsp"/>
 <div class="maincontent">
     <h2>Something gone wrong ${requestScope.type_of_error}</h2>
 

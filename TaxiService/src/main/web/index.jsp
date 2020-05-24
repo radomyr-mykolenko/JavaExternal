@@ -5,7 +5,7 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="html/header.html"/>
+<jsp:include page="jsp/header.jsp"/>
 <div class="maincontent">
     <p>Here we'll work with our taxi</p>
     <!--<a href="html/admin_page.html">Go to admin's page</a>  -->

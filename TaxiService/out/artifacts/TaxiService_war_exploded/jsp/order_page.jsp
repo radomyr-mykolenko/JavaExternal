@@ -13,7 +13,7 @@
     <link href="../styles.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../html/header.html"/>
+<jsp:include page="../jsp/header.jsp"/>
 <div class="maincontent">
     <h3>Order</h3>
     <!-- Not ready-->
