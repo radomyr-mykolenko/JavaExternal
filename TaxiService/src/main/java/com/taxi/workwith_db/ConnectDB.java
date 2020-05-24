@@ -37,16 +37,6 @@ public class ConnectDB {
         }*/
         return connection;
     }
-    public Connection getFlowersConnection() {
-        try {
-            Class.forName(drivername).getDeclaredConstructor().newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/flowersdb", user, password);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return connection;
-    }
 
     public void stop() {
         try {

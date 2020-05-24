@@ -1,7 +1,9 @@
 package com.taxi.servlets;
 
+import com.taxi.model.User;
 import com.taxi.model.helpers.EmailValidator;
 import com.taxi.workwith_db.CheckUser;
+import com.taxi.workwith_db.CreateUser;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +21,11 @@ public class LogInServlet extends HttpServlet {
             CheckUser checkUser = new CheckUser();
             if (checkUser.checkEmail(request.getParameter("usermail"))) {
                 if (checkUser.checkPassword(request.getParameter("usermail"), request.getParameter("userpassword"))) {
+                    // Here user goes to the next step (if login and password are valid)
+                    User user = new CreateUser().getUser(request.getParameter("usermail"));
+                    System.out.println(user.toString());
                     request.getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
+
                 } else {
                     request.setAttribute("invalid_password_message", "password is invalid for user" + request.getParameter("usermail") + ", please try again");
                     request.getRequestDispatcher("/jsp/login_page.jsp").forward(request, response);
