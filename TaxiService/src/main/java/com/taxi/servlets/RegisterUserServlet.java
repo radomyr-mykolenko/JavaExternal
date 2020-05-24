@@ -19,20 +19,23 @@ public class RegisterUserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF8");
+        String usermail = request.getParameter("usermail");
+        String username = request.getParameter("username");
+        String userpassword = request.getParameter("userpassword");
         try {
             String SQL_query;
             EmailValidator emailValidator = new EmailValidator();
-            boolean validate_mail = emailValidator.isEmailValid(request.getParameter("usermail"));
+            boolean validate_mail = emailValidator.isEmailValid(usermail);
             if (validate_mail){
-            SQL_query = "INSERT INTO user (name, email, password) VALUES ('" + request.getParameter("username") +
-                    "','" + request.getParameter("usermail") + "','" + request.getParameter("userpassword") + "');";
+            SQL_query = "INSERT INTO user (name, email, password) VALUES ('" + username +
+                    "','" + usermail + "','" + userpassword + "');";
             ConnectDB connectDB = new ConnectDB();
             QueryUpdate queryUpdate = new QueryUpdate(connectDB);
             queryUpdate.execute(SQL_query);
             connectDB.stop();
             getServletContext().getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
             } else {
-                request.setAttribute("invalid_email_message","e-mail " + request.getParameter("usermail") + " is invalid, please try again");
+                request.setAttribute("invalid_email_message","e-mail " + usermail + " is invalid, please try again");
                 request.getRequestDispatcher("/jsp/register_user.jsp").forward(request,response);
             }
 

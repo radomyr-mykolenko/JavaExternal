@@ -10,11 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/LogInServlet")
 public class LogInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("usermail");
         EmailValidator emailValidator = new EmailValidator();
         boolean validate_mail = emailValidator.isEmailValid(request.getParameter("usermail"));
         if (validate_mail) {
@@ -23,14 +25,17 @@ public class LogInServlet extends HttpServlet {
                 if (checkUser.checkPassword(request.getParameter("usermail"), request.getParameter("userpassword"))) {
                     // Here user goes to the next step (if login and password are valid)
                     User user = new CreateUser().getUser(request.getParameter("usermail"));
-                    System.out.println(user.toString());
+                    request.getSession().setAttribute("actual_user", user);
+                    /*User testuser = (User)request.getSession().getAttribute("actual_user");
+                    System.out.println("from session user - "+ testuser.toString());*/
                     request.getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
 
                 } else {
-                    request.setAttribute("invalid_password_message", "password is invalid for user" + request.getParameter("usermail") + ", please try again");
+                    request.setAttribute("invalid_password_message", "password is invalid for user " + request.getParameter("usermail") + ", please try again");
                     request.getRequestDispatcher("/jsp/login_page.jsp").forward(request, response);
                 }
             } else {
+                request.setAttribute("new_user_email",email);
                 request.getRequestDispatcher("/jsp/register_user.jsp").forward(request, response);
             }
             ;

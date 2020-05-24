@@ -20,8 +20,8 @@
 <form action="/RegisterUserServlet" method="post">
     <label for="fname">Name:</label>
     <input name="username" id="fname" type="text" value="John"/><br><br>
-    <label for="email">Email:</label>
-    <input name="usermail" id="email" type="text" value="test@test.com"/><br><br>
+    <label for="email">Email: ${requestScope.new_user_email}</label>
+    <input name="usermail" id="email" type="hidden" value="${requestScope.new_user_email}"/><br><br>
     <label for="pswrd">Password:</label>
     <input name="userpassword" id="pswrd" type="password"/><br><br>
     <input type="submit" value="Register" id="submit">

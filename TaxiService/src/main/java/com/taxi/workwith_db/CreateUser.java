@@ -18,7 +18,7 @@ public class CreateUser {
             rs = querySelect.execute(SQLquery, connectDB.getConnection());
             while (rs.next()) {
                 if (email.equals(rs.getString(3))) {
-                    user = new User(rs.getString(2),rs.getString(3),rs.getString(4));
+                    user = new User(rs.getLong(1), rs.getString(2),rs.getString(3),rs.getString(4));
                 } else {
                     user = new User();
                 }
