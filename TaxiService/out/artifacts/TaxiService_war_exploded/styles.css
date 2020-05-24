@@ -82,6 +82,27 @@ body {
     font-weight: normal;
     text-shadow: 1px 1px 4px #333;
 }
+#text_right_the_logo2 {
+    font-family: Arial;
+    font-size: 1rem;
+    color: white;
+    font-weight: normal;
+    text-shadow: 1px 1px 4px #333;
+}
+#text_right_the_logo3 {
+    font-family: Arial;
+    font-size: 1rem;
+    color: white;
+    font-weight: normal;
+    text-shadow: 1px 1px 4px #333;
+}
+span.text_right_the_logo4{
+    font-family: Arial;
+    font-size: 1rem;
+    color: white;
+    font-weight: normal;
+    text-shadow: 1px 1px 4px #333;
+}
 div {
     box-shadow: rgb(128, 128, 128) 4px 10px 10px;
     padding: 5px 5px 5px 5px;

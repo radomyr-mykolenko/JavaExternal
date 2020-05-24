@@ -24,15 +24,15 @@
 
     </a>
     <div class="header_content_3pc">
-        <span id="text_right_the_logo">
+
              <a href="/LogoutServlet">
-            <div id="logout_container"> ${message_for_logout}</div>
+            <div id="logout_container"><span id="text_right_the_logo"> ${message_for_logout}</span></div>
         </a>
-            <div id="near_logout_container">${message_with_name_of_user}${actual_user.name}<br>
-                <a href="../jsp/admin_page.jsp">${admin_role}</a>
+            <div id="near_logout_container"><span class="text_right_the_logo4">${message_with_name_of_user}${actual_user.name}</span><br>
+                <a href="/GetAdminPageServlet"><span class="text_right_the_logo4">${admin_role}</span></a>
             </div>
 
-        </span>
+
     </div>
 </div>
 

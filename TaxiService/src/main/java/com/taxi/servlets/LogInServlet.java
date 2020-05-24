@@ -30,6 +30,9 @@ public class LogInServlet extends HttpServlet {
                     request.getSession().setAttribute("actual_user", userForHttpSession);
                     request.getSession().setAttribute("message_with_name_of_user", "You signed as ");
                     request.getSession().setAttribute("message_for_logout"," Logout");
+                    if(email.equals("ad@min.com")){
+                        request.getSession().setAttribute("admin_role", "go to admin's page");
+                    }
                     request.getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
 
                 } else {

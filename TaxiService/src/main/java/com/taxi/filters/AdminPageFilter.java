@@ -21,14 +21,16 @@ public class AdminPageFilter implements Filter {
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
         final HttpSession session = request.getSession();
-        User userFromHttpSession = (User) session.getAttribute("actual_user");
-        String email = userFromHttpSession.getEmail();
-        if (email.equals("ad@min.com")) {
-            ((HttpServletRequest) servletRequest).getSession().setAttribute("admin_role", "go to admin's page");
-        }
-        if (!nonNull(session)) {
+        if (nonNull(session)&&!(null==session.getAttribute("actual_user"))) {
+            User userFromHttpSession = (User) session.getAttribute("actual_user");
+            String email = userFromHttpSession.getEmail();
+            if (email.equals("ad@min.com")) {
+                ((HttpServletRequest) servletRequest).getSession().setAttribute("admin_role", "go to admin's page");
+            }
+        } /*else
+        {
             servletRequest.getRequestDispatcher("/GetIndexPageServlet").forward(servletRequest, servletResponse);
-        }
+        }*/
         filterChain.doFilter(servletRequest,servletResponse);
     }
 
