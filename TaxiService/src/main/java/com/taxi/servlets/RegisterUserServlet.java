@@ -1,7 +1,9 @@
 package com.taxi.servlets;
 
+import com.taxi.model.User;
 import com.taxi.model.helpers.EmailValidator;
 import com.taxi.workwith_db.ConnectDB;
+import com.taxi.workwith_db.CreateUser;
 import com.taxi.workwith_db.QueryUpdate;
 import com.taxi.workwith_db.SqlQueries;
 
@@ -18,26 +20,27 @@ public class RegisterUserServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF8");
-        String usermail = request.getParameter("usermail");
-        String username = request.getParameter("username");
-        String userpassword = request.getParameter("userpassword");
+
+        String email = request.getParameter("usermail");
+        String name = request.getParameter("username");
+        String password = request.getParameter("userpassword");
+
         try {
             String SQL_query;
-            EmailValidator emailValidator = new EmailValidator();
-            boolean validate_mail = emailValidator.isEmailValid(usermail);
-            if (validate_mail){
-            SQL_query = "INSERT INTO user (name, email, password) VALUES ('" + username +
-                    "','" + usermail + "','" + userpassword + "');";
+
+            SQL_query = "INSERT INTO user (name, email, password) VALUES ('" + name +
+                    "','" + email + "','" + password + "');";
             ConnectDB connectDB = new ConnectDB();
             QueryUpdate queryUpdate = new QueryUpdate(connectDB);
             queryUpdate.execute(SQL_query);
             connectDB.stop();
+            User userForHttpSession = new CreateUser().getUser(email);
+            request.getSession().setAttribute("actual_user", userForHttpSession);
+
+            User testuser = (User) request.getSession().getAttribute("actual_user");
+            System.out.println("RegisterUserServlet - from session user - " + testuser.toString());
             getServletContext().getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
-            } else {
-                request.setAttribute("invalid_email_message","e-mail " + usermail + " is invalid, please try again");
-                request.getRequestDispatcher("/jsp/register_user.jsp").forward(request,response);
-            }
+
 
         } catch (SQLException e) {
             request.setAttribute("type_of_error", "with SQL");

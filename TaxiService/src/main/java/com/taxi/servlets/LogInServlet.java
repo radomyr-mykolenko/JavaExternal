@@ -17,21 +17,21 @@ import java.io.IOException;
 public class LogInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("usermail");
+        String password = request.getParameter("userpassword");
         EmailValidator emailValidator = new EmailValidator();
-        boolean validate_mail = emailValidator.isEmailValid(request.getParameter("usermail"));
+        boolean validate_mail = emailValidator.isEmailValid(email);
         if (validate_mail) {
             CheckUser checkUser = new CheckUser();
-            if (checkUser.checkEmail(request.getParameter("usermail"))) {
-                if (checkUser.checkPassword(request.getParameter("usermail"), request.getParameter("userpassword"))) {
+            if (checkUser.checkEmail(email)) {
+                if (checkUser.checkPassword(email, password)) {
+
                     // Here user goes to the next step (if login and password are valid)
-                    User user = new CreateUser().getUser(request.getParameter("usermail"));
+                    User user = new CreateUser().getUser(email);
                     request.getSession().setAttribute("actual_user", user);
-                    /*User testuser = (User)request.getSession().getAttribute("actual_user");
-                    System.out.println("from session user - "+ testuser.toString());*/
                     request.getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
 
                 } else {
-                    request.setAttribute("invalid_password_message", "password is invalid for user " + request.getParameter("usermail") + ", please try again");
+                    request.setAttribute("invalid_password_message", "password is invalid for user " + email + ", please try again");
                     request.getRequestDispatcher("/jsp/login_page.jsp").forward(request, response);
                 }
             } else {
@@ -40,7 +40,7 @@ public class LogInServlet extends HttpServlet {
             }
             ;
         } else {
-            request.setAttribute("invalid_email_message", "e-mail " + request.getParameter("usermail") + " is invalid, please try again");
+            request.setAttribute("invalid_email_message", "e-mail " + email + " is invalid, please try again");
             request.getRequestDispatcher("/jsp/login_page.jsp").forward(request, response);
         }
     }
