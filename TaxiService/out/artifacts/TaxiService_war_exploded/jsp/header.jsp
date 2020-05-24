@@ -29,7 +29,7 @@
             <div id="logout_container"><span id="text_right_the_logo"> ${message_for_logout}</span></div>
         </a>
             <div id="near_logout_container"><span class="text_right_the_logo4">${message_with_name_of_user}${actual_user.name}</span><br>
-                <a href="/GetAdminPageServlet"><span class="text_right_the_logo4">${admin_role}</span></a>
+                <a href="/GetAdminPageServlet"><div id="admin_page_container"><span id="text_right_the_logo2">${admin_role}</span></div></a>
             </div>
 
 
