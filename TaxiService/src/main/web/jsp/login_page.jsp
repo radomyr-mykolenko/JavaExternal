@@ -19,9 +19,9 @@
     <h3>Please log in to the system:</h3>
     <form action="/LogInServlet" method="post">
         <label for="email">Email:</label>
-        <input name="usermail" id="email" type="text" value="test@test.com"/><br><br>
+        <input name="usermail" id="email" type="text" value="ad@min.com"/><br><br>
         <label for="pswrd">Password:</label>
-        <input name="userpassword" id="pswrd" type="text" value="1665"/><br><br>
+        <input name="userpassword" id="pswrd" type="text" value="1"/><br><br>
         <input type="submit">
     </form>
 </div>
