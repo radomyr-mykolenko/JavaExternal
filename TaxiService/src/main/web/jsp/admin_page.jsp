@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="../jsp/header.jsp"/>
-<jsp:include page="../html/admin_menu.html"/>
+<jsp:include page="../jsp/admin_menu.jsp"/>
 <div class="footer_higher">
     <p>Here You can manipulate with some data</p>
 </div>

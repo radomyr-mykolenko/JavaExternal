@@ -32,7 +32,7 @@ public class LogInServlet extends HttpServlet {
                     request.getSession().setAttribute("message_for_logout"," Logout");
                     if(email.equals("ad@min.com")){
                         request.getSession().setAttribute("admin_role", "go to admin's page");
-                    }
+                    } else request.getSession().removeAttribute("admin_role");
                     request.getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
 
                 } else {
