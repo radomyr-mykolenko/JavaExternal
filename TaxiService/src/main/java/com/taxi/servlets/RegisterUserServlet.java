@@ -36,8 +36,17 @@ public class RegisterUserServlet extends HttpServlet {
             connectDB.stop();
             User userForHttpSession = new CreateUser().getUser(email);
             request.getSession().setAttribute("actual_user", userForHttpSession);
-            request.getSession().setAttribute("message_with_name_of_user", "You signed as ");
-            request.getSession().setAttribute("message_for_logout"," Logout");
+            String language = request.getParameter("lang");
+            if (language.equals("eng")) {
+                request.getSession().setAttribute("message_with_name_of_user", "You signed as ");
+                request.getSession().setAttribute("message_for_logout"," Logout");
+            }
+            if (language.equals("ukr") ){
+                request.getSession().setAttribute("message_with_name_of_user", "Ви увійшли як ");
+                request.getSession().setAttribute("message_for_logout"," Вийти");
+            }
+            //request.getSession().setAttribute("message_with_name_of_user", "You signed as ");
+            //request.getSession().setAttribute("message_for_logout"," Logout");
 
             getServletContext().getRequestDispatcher("/jsp/order_page.jsp").forward(request, response);
 

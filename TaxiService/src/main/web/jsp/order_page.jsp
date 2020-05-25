@@ -17,12 +17,12 @@
 <div class="maincontent">
     <h3>Order</h3>
     <!-- Not ready-->
-    <p>Hi, ${actual_user.name}!,<br> let's have a trip! email = ${actual_user.email}, password = ${actual_user.password}</p>
+    <p>Hi, ${actual_user.name}!,<br> let's have a trip! </p>
     <form action="/OrderServlet" method="post">
         <!--<label for="fname">Name:</label>-->
         <input name="username" id="fname" type="hidden" value="${actual_user.name}"/><br><br>
         <!--<label for="email">Email:</label>-->
-        <input name="usermail" id="email" type="hidden" value="${actual_user.email}"/><br><br>
+        <input name="usermail" id="email" type="hidden" value="${actual_user.email}"/>
         <label for="fstartstreet">Trip Starts at:</label>
         <input name="startstreet" id="fstartstreet" type="text" size="40" value="Bohdana Hmelnytskogo, 54"/><br><br>
         <label for="fendstreet">Trip Ends at:</label>

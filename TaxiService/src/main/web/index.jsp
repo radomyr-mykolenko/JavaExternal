@@ -10,11 +10,11 @@
     <p>Here we'll work with our taxi</p>
     <h3>Choose Your Language:</h3>
     <form method="post" action="/GetLanguageServlet">
-        <label for="language">Choose Your Language:</label>
+        <!--<label for="language">Choose Your Language:</label>-->
         <select id="language" name="lang">
             <option value="ukr">українська</option>
             <option value="eng">english</option>
-        </select><br>
+        </select><br><br>
         <input type="submit" value="OK">
     </form>
 </div>

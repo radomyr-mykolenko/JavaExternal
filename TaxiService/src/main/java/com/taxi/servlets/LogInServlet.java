@@ -28,8 +28,18 @@ public class LogInServlet extends HttpServlet {
                     // Here user goes to the next step (if login and password are valid)
                     User userForHttpSession = new CreateUser().getUser(email);
                     request.getSession().setAttribute("actual_user", userForHttpSession);
-                    request.getSession().setAttribute("message_with_name_of_user", "You signed as ");
-                    request.getSession().setAttribute("message_for_logout"," Logout");
+                    String language = (String) request.getSession().getAttribute("language");
+                    if (language.equals("en_EN")) {
+                        request.getSession().setAttribute("message_with_name_of_user", "You signed as ");
+                        request.getSession().setAttribute("message_for_logout"," Logout");
+                    }
+                    if (language.equals("ua_UA") ){
+                        request.getSession().setAttribute("message_with_name_of_user", "Ви увійшли як ");
+                        request.getSession().setAttribute("message_for_logout"," Вийти");
+                    }
+                    //request.getSession().setAttribute("message_with_name_of_user", "You signed as ");
+                    //request.getSession().setAttribute("message_for_logout"," Logout");
+
                     if(email.equals("ad@min.com")){
                         request.getSession().setAttribute("admin_role", "go to admin's page");
                     } else request.getSession().removeAttribute("admin_role");

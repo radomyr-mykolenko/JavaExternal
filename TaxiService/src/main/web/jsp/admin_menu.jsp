@@ -8,9 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:if test="${not empty param.language}">
-    <c:set var="language" value="${param.language}" scope="session"/>
-</c:if>
 <fmt:setLocale value="${sessionScope.language}"/>
 <fmt:setBundle basename="admin_page_msg"/>
 
@@ -75,7 +72,7 @@
         </div>
     </a>
 
-    <a href="/create_car_type_table_servlet" target="_self">
+    <a href="/CreateCarTypeTableServlet" target="_self">
         <div class="content_preview">
             <div class="descriprion_preview">
                 <div class="image_preview">
@@ -90,7 +87,7 @@
         </div>
     </a>
 
-    <a href="/ins_car_type_test_data" target="_self">
+    <a href="/InsertTestDataCarTypeTableServlet" target="_self">
         <div class="content_preview2">
             <div class="descriprion_preview">
                 <div class="image_preview">
@@ -185,7 +182,7 @@
             </div>
         </div>
     </a>
-    <a href="/ins_orders_test_data" target="_self">
+    <a href="/InsertTestDataOrdersTableServlet" target="_self">
         <div class="content_preview2">
             <div class="descriprion_preview">
                 <div class="image_preview">
