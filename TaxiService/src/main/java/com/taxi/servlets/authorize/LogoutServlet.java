@@ -20,6 +20,7 @@ public class LogoutServlet extends HttpServlet {
         session.removeAttribute("message_with_name_of_user");
         session.removeAttribute("message_for_logout");
         session.removeAttribute("admin_role");
+        session.removeAttribute("language");
         response.sendRedirect("/jsp/login_page.jsp");
     }
 }

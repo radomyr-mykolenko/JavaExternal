@@ -8,13 +8,14 @@
 <jsp:include page="jsp/header.jsp"/>
 <div class="maincontent">
     <p>Here we'll work with our taxi</p>
-    <!--<a href="html/admin_page.html">Go to admin's page</a>  -->
-    <a href="/GetAdminPageServlet">Go to admin's page</a>
     <h3>Choose Your Language:</h3>
-    <form method="post" action="/GetPageServlet">
-        <button type="submit" value="ukr">Українська</button>
-        <input id="for_eng" name="eng_button" type="hidden" value="eng">
-        <input type="submit" value="eng">
+    <form method="post" action="/GetLanguageServlet">
+        <label for="language">Choose Your Language:</label>
+        <select id="language" name="lang">
+            <option value="ukr">українська</option>
+            <option value="eng">english</option>
+        </select><br>
+        <input type="submit" value="OK">
     </form>
 </div>
 </body>
