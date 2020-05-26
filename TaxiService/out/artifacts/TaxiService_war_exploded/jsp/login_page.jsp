@@ -29,7 +29,7 @@
         <label for="email"><fmt:message key="login_page_email"/></label>
         <input name="usermail" id="email" type="text" value="ad@min.com"/><br><br>
         <label for="pswrd"><fmt:message key="LABEL_PASSWORD"/></label>
-        <input name="userpassword" id="pswrd" type="text" value="1"/><br><br>
+        <input name="userpassword" id="pswrd" type="password" value="1"/><br><br>
         <input type="submit" value="<fmt:message key="login_page_submit"/>">
     </form>
 </div>

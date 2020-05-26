@@ -14,7 +14,7 @@
         <select id="language" name="lang">
             <option value="ukr">українська</option>
             <option value="eng">english</option>
-        </select><br>
+        </select><br><br>
         <input type="submit" value="OK">
     </form>
 </div>
